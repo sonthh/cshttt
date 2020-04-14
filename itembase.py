@@ -37,10 +37,12 @@ for item in rows:
         sum3 = 0
 
         for j in range(row_len):
-            if A[j][cur] != 0 and A[j][i] != 0:
-                sum1 += A[j][cur] * A[j][i]
-                sum2 += A[j][cur] * A[j][cur]
-                sum3 += A[j][i] * A[j][i]
+            if A[j][cur] == 0 or A[j][i] == 0:
+                continue
+
+            sum1 += A[j][cur] * A[j][i]
+            sum2 += A[j][cur] * A[j][cur]
+            sum3 += A[j][i] * A[j][i]
 
         cos = sum1 / (math.sqrt(sum2 * sum2) * math.sqrt(sum3 * sum3))
         sum_sim += abs(cos)
